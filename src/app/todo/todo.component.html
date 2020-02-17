@@ -1,0 +1,22 @@
+<div>
+      <h2 class="text-center mb-3">All Posts</h2>
+      <a routerLink="/add" class="btn btn-primary mb-3">Add post</a>
+      <h3 class="text-danger text-center mb-3 mt-3">{{ errorMessage }}</h3>
+      <div class="w-100 d-flex justify-content-center" *ngIf="loading">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+
+  <div class="grid"  *ngIf="!errorMessage">
+    <div class="card" style="width: 18rem;" *ngFor="let post of posts">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">
+          {{post.body}}
+        </p>
+        <a routerLink="/details/{{post.id}}" class="card-link">View details</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="w-50 ml-5">
+      <h2 class="text-center mb-5">Add a post</h2>
+      <h3 class="text-danger text-center mb-3">{{errorMessage}}</h3>
+      <form (submit)="onSubmit($event)">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Title</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Angular" [(ngModel)]="title"  name="title" (input)="onInput()"/>
+            </div>
+      
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">body</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Angular is awesome" [(ngModel)]="body" name="body" (input)="onInput()"></textarea>
+            </div>
+            <div class="form-group">
+                  <label for="exampleFormControlInput1">Userid</label>
+                  <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="1"  [(ngModel)]="userId" (input)="onInput()" name="userId"/>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="isEmpty" *ngIf="!loading">Add</button>
+            <div class="spinner-border text-primary" role="status" *ngIf="loading">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </form>
+</div>
